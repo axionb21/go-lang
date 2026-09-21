@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 460" width="300" height="300">
+  <rect width="460" height="460" fill="#000"/>
+
+  <defs>
+    <!-- Reveal mask: the white stroke travels along the same motion as the logo -->
+    <mask id="logoReveal" maskUnits="userSpaceOnUse" x="0" y="0" width="460" height="460">
+      <rect width="460" height="460" fill="black"/>
+
+      <!-- Main drawing motion -->
+      <path class="reveal-main"
+        d="M 105,242
+           C 115,218 136,174 160,151
+           C 183,129 207,132 226,151
+           C 250,176 270,205 273,240
+           C 277,285 258,318 231,332
+           C 205,345 177,333 165,309
+           C 154,286 163,262 185,239
+           C 206,218 241,194 300,145"
+        fill="none" stroke="white" stroke-width="72"
+        stroke-linecap="round" stroke-linejoin="round"
+        pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
+        <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.6s" begin="0s" fill="freeze"/>
+      </path>
+
+      <!-- Upper-left curved part -->
+      <path class="reveal-upper"
+        d="M 105,242 C 124,202 145,164 174,137 C 198,115 219,120 241,143"
+        fill="none" stroke="white" stroke-width="72"
+        stroke-linecap="round" stroke-linejoin="round"
+        pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
+        <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.15s" begin="0.15s" fill="freeze"/>
+      </path>
+    </mask>
+
+    <!-- Exact logo shapes traced from the supplied reference image -->
+    <g id="logo-shape" fill="#fff">
+      <!-- Main loop + diagonal -->
+      <path d="M 308,126 L 301,124 L 293,124 L 280,131 L 202,194 L 181,216 L 164,240 L 152,270 L 150,285 L 151,298 L 156,314 L 164,328 L 175,340 L 189,350 L 207,357 L 218,359 L 235,359 L 245,357 L 259,352 L 274,343 L 288,330 L 296,318 L 303,303 L 308,284 L 308,253 L 299,221 L 287,199 L 253,223 L 263,243 L 266,256 L 266,273 L 263,285 L 258,296 L 246,309 L 231,316 L 217,316 L 205,311 L 198,305 L 193,298 L 189,288 L 189,279 L 191,272 L 198,260 L 215,242 L 316,166 L 321,157 L 322,145 L 319,136 L 314,130 Z"/>
+      <!-- Upper-left curved stroke -->
+      <path d="M 257,140 L 241,123 L 228,114 L 219,110 L 207,108 L 191,110 L 171,120 L 152,135 L 136,151 L 120,170 L 100,201 L 92,219 L 89,232 L 89,241 L 93,252 L 97,256 L 105,259 L 116,256 L 127,244 L 139,220 L 162,184 L 170,174 L 190,156 L 202,152 L 209,153 L 214,155 L 226,164 Z"/>
+    </g>
+  </defs>
+
+  <!-- Reveal the exact logo using the animated mask -->
+  <g mask="url(#logoReveal)">
+    <use href="#logo-shape"/>
+  </g>
+
+  <!-- Dot appears after the drawing finishes -->
+  <circle class="logo-dot" cx="344" cy="126" r="18" fill="#fff">
+    <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="1.7s" fill="freeze"/>
+    <animate attributeName="r" from="3" to="18" dur="0.3s" begin="1.7s" fill="freeze"/>
+  </circle>
+</svg>
