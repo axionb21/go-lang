@@ -1,4 +1,4 @@
-# go-lang-
+# go lang
 
 <code> println("hello world ")  
 
